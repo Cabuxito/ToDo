@@ -61,5 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\ToDoTable.sql" />
+    <Build Include="StoredProcedure\spAddTask.sql" />
+    <Build Include="StoredProcedure\spDeleteTaskById.sql" />
+    <Build Include="StoredProcedure\spGetTaskById.sql" />
+    <Build Include="StoredProcedure\spShowAllTask.sql" />
+    <Build Include="StoredProcedure\spTaskIsCompleted.sql" />
+    <Build Include="StoredProcedure\spUpdateTask.sql" />
   </ItemGroup>
 </Project>
