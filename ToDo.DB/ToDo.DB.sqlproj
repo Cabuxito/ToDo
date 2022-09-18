@@ -59,4 +59,7 @@
     <Folder Include="Tables" />
     <Folder Include="StoredProcedure" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\ToDoTable.sql" />
+  </ItemGroup>
 </Project>
