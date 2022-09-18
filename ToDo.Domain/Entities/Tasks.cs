@@ -8,5 +8,11 @@ namespace ToDo.Domain.Entities
 {
     public class Tasks
     {
+        public int Task_Id { get; init; }
+        public string Task_Name { get; set; }
+        public string Task_Description { get; set; }
+        public DateTime Task_Created { get; set; }
+        public string Priority { get; set; }
+        public bool Task_Status { get; set; }
     }
 }
