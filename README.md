@@ -21,8 +21,8 @@ improvements.
   <li> DevelopV0.2: Add tables and StoredProcedures to DB. [✔️]</li> 
   <li> DevelopV0.3: Add methods and prop to the right classes and interfaces on Domain and Service Layer. [✔️]</li>
   <li> DevelopV0.4: Add Show, New,Update and delete tasks. [✔️]</li>
-  <li> DevelopV0.5: Add Score and do Menu user interactive. [✔️]</li>
-  <li> DevelopV0.6: Add Options Button that deletes leaderboards. [Under Develop] </li> 
+  <li> DevelopV0.5: Add New page where Completed Tasks are and try to improve some features. [✔️]</li>
+  <li> DevelopV0.6: [Under Develop] </li> 
 </ul>
 
 ## Instructions
