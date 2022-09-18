@@ -8,7 +8,8 @@
 * [Tags](#Tags)
 * [Changelog](#Changelog)
 * [To-do](#To-do)
-* 
+
+
 ## Intro
 I have a projekt where I need to do a To Do list on razor pages, the web needs to have a functional create, read, update and delete tasks and try to add some
 improvements.
