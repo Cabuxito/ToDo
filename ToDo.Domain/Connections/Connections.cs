@@ -152,14 +152,14 @@ namespace ToDo.Domain.Connections
         /// <param name="taskDescription"></param>
         /// <param name="priority"></param>
         /// <param name="isCompleted"></param>
-        public void UpdateTask(int id, string taskName, string taskDescription, string priority, bool isCompleted)
+        public void UpdateTask(int id, string taskName, string taskDescription, string priority, bool status)
         {
             SqlCommand command = MyCommand("spUpdateTask");
             command.Parameters.AddWithValue("Task_Id", id);
             command.Parameters.AddWithValue("TaskName", taskName);
             command.Parameters.AddWithValue("TaskDescription", taskDescription);
+            command.Parameters.AddWithValue("IsCompleted", status);
             command.Parameters.AddWithValue("Priority", priority);
-            command.Parameters.AddWithValue("IsCompleted", isCompleted);
             try
             {
                 _sqlConnection.Open();

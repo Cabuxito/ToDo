@@ -95,9 +95,9 @@ namespace ToDo.Service.Services
         /// <param name="createdTime"></param>
         /// <param name="priority"></param>
         /// <param name="isCompleted"></param>
-        public void UpdateTask(int id, string taskName, string taskDescription, string priority, bool isCompleted)
+        public void UpdateTask(int id, string taskName, string taskDescription, string priority, bool status)
         {
-            _connection.UpdateTask(id, taskName, taskDescription, priority, isCompleted);
+            _connection.UpdateTask(id, taskName, taskDescription, priority, status);
         }
         public void TaskIsCompleted(int taskId)
         {

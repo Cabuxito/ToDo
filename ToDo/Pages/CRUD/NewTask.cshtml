@@ -2,18 +2,18 @@
 @model ToDo.Pages.CRUD.NewTaskModel
 @{
 }
-<h4 class="d-flex justify-content-center">CREATE NEW TASK</h4>
+<h4 class="d-flex justify-content-center">CREATE N EW TASK</h4>
 <div class="d-flex justify-content-center">
     <form action="" method="post" class="col-4">
         <div class="mb-3 ">
             <label class="form-label" for="TaskName">Task Name:</label>
-            <input type="text" id="TaskName" class="form-control" asp-for="TaskName" />
+            <input type="text" id="TaskName" class="form-control" asp-for="TaskName" required />
         </div>
         <div class="mb-3">
             <label class="form-label">Description:</label>
-            <textarea class="form-control" asp-for="TaskDescription"></textarea>
+            <textarea class="form-control" asp-for="TaskDescription" required></textarea>
         </div>
-        <div class="mb-3">
+        <div class="mb-3" >
             <label class="form-label">Priority:</label><br />
             <input type="radio" id="Low" asp-for="Priority" value="Low"/>
             <label for="html">Low</label><br>

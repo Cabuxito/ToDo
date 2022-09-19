@@ -11,15 +11,23 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Description:</label>
-            <textarea class="form-control" asp-for="NewTaskDescription" value="@Model.myTask.Task_Description"></textarea>
+            <textarea class="form-control" asp-for="NewTaskDescription" value="@Model.myTask.Task_Description" required></textarea>
         </div>
         <div class="mb-3">
-            <label class="form-label">Priority:</label>
-            <input type="text" class="form-control" asp-for="NewPriority" value="@Model.myTask.Priority" />
+            <label class="form-label">Priority:</label><br />
+            <input type="radio" id="Low" asp-for="NewPriority" value="Low" />
+            <label for="html">Low</label><br>
+            <input type="radio" id="Medium" asp-for="NewPriority" value="Medium" />
+            <label for="html">Medium</label><br>
+            <input type="radio" id="High" asp-for="NewPriority" value="High" />
+            <label for="html">High</label><br>
         </div>
         <div class="mb-3">
-            <label class="form-label">Status:</label>
-            <input type="text" class="form-control" asp-for="NewStatus" value="@Model.myTask.Task_Status" />
+            <label class="form-label">Status:</label><br />
+            <input type="radio" asp-for="NewStatus" value="0" />
+            <label>In Process</label><br />
+            <input type="radio" asp-for="NewStatus" value="1" />
+            <label>Completed</label>
         </div>
         <div class="d-flex justify-content-center ">
             <button type="submit" class="btn btn-dark m-1">Update</button>

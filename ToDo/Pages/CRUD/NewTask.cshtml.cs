@@ -26,5 +26,6 @@ namespace ToDo.Pages.CRUD
             _connection.NewTask(TaskName, TaskDescription, Priority);
             return RedirectToPage("/Index");
         }
+
     }
 }
