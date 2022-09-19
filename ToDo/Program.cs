@@ -1,7 +1,12 @@
+using ToDo.Domain.Connections;
+using ToDo.Service.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddRazorPages().Services.AddSingleton<IConnections, Connections>();
+builder.Services.AddRazorPages().Services.AddSingleton<ITaskServices, TaskServices>();
 
 var app = builder.Build();
 

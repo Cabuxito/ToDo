@@ -58,7 +58,7 @@ namespace ToDo.Domain.Connections
         /// <returns>list of task</returns>
         public List<Tasks> ShowAllTask()
         {
-            SqlCommand command = MyCommand("spShowTaskTable");
+            SqlCommand command = MyCommand("spShowAllTask");
             try
             {
                 _sqlConnection.Open();
@@ -96,7 +96,7 @@ namespace ToDo.Domain.Connections
         public Tasks ShowTaskById(int id)
         {
             SqlCommand command = MyCommand("spGetTaskById");
-            command.Parameters.AddWithValue("id", id);
+            command.Parameters.AddWithValue("Task_Id", id);
             try
             {
                 _sqlConnection.Open();

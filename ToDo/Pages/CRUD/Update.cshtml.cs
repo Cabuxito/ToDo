@@ -2,15 +2,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ToDo.Domain.Connections;
 using ToDo.Service.Models;
+using ToDo.Service.Services;
 
 namespace ToDo.Pages.CRUD
 {
     [BindProperties]
     public class UpdateModel : PageModel
     {
-        private readonly IConnections _connection;
+        private readonly ITaskServices _connection;
 
-        public UpdateModel(IConnections connections)
+        public UpdateModel(ITaskServices connections)
         {
             _connection = connections;
         }
@@ -25,7 +26,7 @@ namespace ToDo.Pages.CRUD
 
         public void OnGet()
         {
-            _connection.ShowTaskById(TaskId);
+            myTask = _connection.ShowTaskById(TaskId);
         }
 
         public IActionResult OnPost(int id)

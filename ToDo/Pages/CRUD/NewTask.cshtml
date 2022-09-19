@@ -14,8 +14,13 @@
             <textarea class="form-control" asp-for="TaskDescription"></textarea>
         </div>
         <div class="mb-3">
-            <label class="form-label">Priority:</label>
-            <input type="text" class="form-control" asp-for="Priority" />
+            <label class="form-label">Priority:</label><br />
+            <input type="radio" id="Low" asp-for="Priority" value="Low"/>
+            <label for="html">Low</label><br>
+            <input type="radio" id="Medium" asp-for="Priority" value="Medium"/>
+            <label for="html">Medium</label><br>
+            <input type="radio" id="High" asp-for="Priority" value="High"/>
+            <label for="html">High</label><br>
         </div>
         <div class="d-flex justify-content-center ">
             <button type="submit" class="btn btn-dark m-1">Create</button>
