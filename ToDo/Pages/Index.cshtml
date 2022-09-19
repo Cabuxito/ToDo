@@ -8,8 +8,7 @@
 <table class="table table-hover">
 
     <thead>
-        <tr>
-            <th scope="col">Task Id</th>
+        <tr style="text-align: center;">
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Created time</th>
@@ -21,21 +20,34 @@
     </thead>
     @foreach (var item in Model.TaskList)
     {
-        <tbody>
-            <tr>
-                <th scope="row">@item.Task_Id</th>
-                <td>@item.Task_Name</td>
-                <td>@item.Task_Description</td>
-                <td>@item.Task_Created</td>
-                <td>@item.Task_Status</td>
-                <td>@item.Priority</td>
-                <td><a class="btn btn-dark btn-group-sm" asp-route-TaskId="@item.Task_Id" asp-page="/CRUD/Update">Edit</a></td>
-                <td>
-                    <form asp-page-handler="DeleteButton" asp-route-TaskId="@item.Task_Id" method="post">
-                        <button type="submit" class="btn btn-warning btn-group-sm">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        </tbody>
+        @if (item.Task_Status != true)
+        {
+            <tbody>
+                <tr style="text-align:center;">
+                    <td>@item.Task_Name</td>
+                    <td>@item.Task_Description</td>
+                    <td>@item.Task_Created</td>
+                    <td>In Process</td>
+                    @if (item.Priority == "High")
+                    {
+                        <td style="background-color: red">@item.Priority</td>
+                    }
+                    @if (item.Priority == "Medium")
+                    {
+                        <td style="background-color: yellow">@item.Priority</td>
+                    }
+                    @if (item.Priority == "Low")
+                    {
+                        <td style="background-color: green">@item.Priority</td>
+                    }
+                    <td><a class="btn btn-dark btn-group-sm" asp-route-TaskId="@item.Task_Id" asp-page="/CRUD/Update">Edit</a></td>
+                    <td>
+                        <form asp-page-handler="DeleteButton" asp-route-TaskId="@item.Task_Id" method="post">
+                            <button type="submit" class="btn btn-dark btn-group-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        }
     }
 </table>

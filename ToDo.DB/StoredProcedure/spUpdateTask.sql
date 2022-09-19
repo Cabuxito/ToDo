@@ -10,4 +10,5 @@ AS
 	TaskDescription = @TaskDescription,
 	[Priority] = @Priority,
 	IsCompleted = @IsCompleted
+	WHERE Task_Id = @Task_Id
 GO

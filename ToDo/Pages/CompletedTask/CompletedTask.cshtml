@@ -6,13 +6,11 @@
 <table class="table table-hover">
 
     <thead>
-        <tr>
-            <th scope="col">Task Id</th>
+        <tr style="text-align:center;">
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Created time</th>
             <th scope="col">Status</th>
-            <th scope="col">Priority</th>
             <th scope="col">Update</th>
             <th scope="col">Delete</th>
         </tr>
@@ -22,13 +20,11 @@
         @if (item.Task_Status != false)
         {
             <tbody>
-                <tr>
-                    <th scope="row">@item.Task_Id</th>
+                <tr style="text-align:center;">
                     <td>@item.Task_Name</td>
                     <td>@item.Task_Description</td>
                     <td>@item.Task_Created</td>
-                    <td>@item.Task_Status</td>
-                    <td>@item.Priority</td>
+                    <td>Completed</td>
                     <td><a class="btn btn-dark btn-group-sm" asp-route-TaskId="@item.Task_Id" asp-page="/CRUD/Update">Edit</a></td>
                     <td>
                         <form asp-page-handler="DeleteButton" asp-route-TaskId="@item.Task_Id" method="post">
@@ -37,10 +33,6 @@
                     </td>
                 </tr>
             </tbody>
-        }
-        else
-        {
-            @RedirectToPage("/Error");
         }
     }
 </table>
