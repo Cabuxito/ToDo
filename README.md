@@ -21,8 +21,9 @@ improvements.
   <li> DevelopV0.2: Add tables and StoredProcedures to DB. [✔️]</li> 
   <li> DevelopV0.3: Add methods and prop to the right classes and interfaces on Domain and Service Layer. [✔️]</li>
   <li> DevelopV0.4: Add Show, New,Update and delete tasks. [✔️]</li>
-  <li> DevelopV0.5: Add New page where Completed Tasks are and try to improve some features. [✔️]</li>
-  <li> DevelopV0.6: [Under Develop] </li> 
+  <li> DevelopV0.5: Design one page where Completed Tasks shows. [✔️]</li>
+  <li> DevelopV0.6: CompletedTasks page are functional and I have add some features like Delete All, etc.. [✔️]</li>
+  <li> DevelopV0.7: Sorting function and improve user experience. [✔️]</li>
 </ul>
 
 ## Instructions
@@ -34,8 +35,9 @@ improvements.
 * [v0.2]https://github.com/Cabuxito/ToDo/tree/Develop0.2
 * [v0.3]https://github.com/Cabuxito/ToDo/tree/Develop0.3
 * [v0.4]https://github.com/Cabuxito/ToDo/tree/Develop0.4
-* [v0.5]https://github.com/Cabuxito/ToDo/tree/Develop0.5 - Current Version
-* [V0.6]
+* [v0.5]https://github.com/Cabuxito/ToDo/tree/Develop0.5 
+* [V0.6]https://github.com/Cabuxito/ToDo/tree/DevelopV0.6
+* [V0.7]https://github.com/Cabuxito/ToDo/tree/Develop0.7 - Current Version 
 
 ## Changelog
 
@@ -54,9 +56,13 @@ The next I was thinking is to add some properties to my classes and methods to m
 Now we have to see some visual and test my methods, so I did add some pages like create and update, and have modify Index page to my ShowList(Start) page.
 
 **v0.5**:
+I did design my Completed Task page, the function the page have is to show all completed task and some buttons like "Delete All", Checkbox "Not Completed".
 
 **v0.6**:
+The new page are functional and I did make some improvements on the Completed Page, and try to cover all bugs.
 
+**v0.7**:
+Add the sorting function by priority and make some features to improve the user experience and security.
 
 
 # To-do
