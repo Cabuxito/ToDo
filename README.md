@@ -66,7 +66,7 @@ Add the sorting function by priority and make some features to improve the user 
 
 
 # To-do
-* 
-* 
-* 
-* 
+* Pages as a pop-up window.
+* Sort by name, dato.
+* Login System.
+* Web Design
