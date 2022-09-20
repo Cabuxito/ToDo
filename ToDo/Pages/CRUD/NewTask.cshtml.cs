@@ -23,7 +23,15 @@ namespace ToDo.Pages.CRUD
 
         public IActionResult OnPost()
         {
-            _connection.NewTask(TaskName, TaskDescription, Priority);
+            try
+            {
+                _connection.NewTask(TaskName, TaskDescription, Priority);
+
+            }
+            catch (Exception)
+            {
+                RedirectToPage("/ErrorPage/ErrorPage");
+            }
             return RedirectToPage("/Index");
         }
 

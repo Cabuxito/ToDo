@@ -13,7 +13,8 @@ namespace ToDo.Domain.Connections
         public List<Tasks> ShowAllTask();
         public Tasks ShowTaskById(int id);
         public void DeleteTaskById(int id);
-        public void UpdateTask(int id, string taskName, string taskDescription, string priority, bool status);
+        public void UpdateTask(int id, string taskName, string taskDescription, string priority);
         public void TaskIsCompleted(int taskId);
+        public void DeleteAll();
     }
 }

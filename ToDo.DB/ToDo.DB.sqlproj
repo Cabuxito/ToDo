@@ -67,5 +67,6 @@
     <Build Include="StoredProcedure\spShowAllTask.sql" />
     <Build Include="StoredProcedure\spTaskIsCompleted.sql" />
     <Build Include="StoredProcedure\spUpdateTask.sql" />
+    <Build Include="StoredProcedure\spDeleteAll.sql" />
   </ItemGroup>
 </Project>

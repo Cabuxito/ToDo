@@ -52,7 +52,7 @@ namespace ToDo.Service.Services
                         Task_Status = item.Task_Status
                     });
                 }
-                return modelTask;
+                return modelTask.OrderBy(x => x.Priority).ToList();
             }
             return modelTask;
         }
@@ -95,13 +95,19 @@ namespace ToDo.Service.Services
         /// <param name="createdTime"></param>
         /// <param name="priority"></param>
         /// <param name="isCompleted"></param>
-        public void UpdateTask(int id, string taskName, string taskDescription, string priority, bool status)
+        public void UpdateTask(int id, string taskName, string taskDescription, string priority)
         {
-            _connection.UpdateTask(id, taskName, taskDescription, priority, status);
+            _connection.UpdateTask(id, taskName, taskDescription, priority);
         }
+        /// <summary>
+        /// Set task to completed.
+        /// </summary>
+        /// <param name="taskId"></param>
         public void TaskIsCompleted(int taskId)
         {
             _connection.TaskIsCompleted(taskId);
         }
+
+        public void DeleteAll() => _connection.DeleteAll();
     }
 }

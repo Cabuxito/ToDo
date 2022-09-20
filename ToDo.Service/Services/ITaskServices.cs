@@ -13,7 +13,8 @@ namespace ToDo.Service.Services
         public List<TasksModel> ShowAllTask();
         public TasksModel ShowTaskById(int id);
         public void DeleteTaskById(int taskid);
-        public void UpdateTask(int id, string taskName, string taskDescription, string priority, bool status);
+        public void UpdateTask(int id, string taskName, string taskDescription, string priority);
         public void TaskIsCompleted(int taskId);
+        public void DeleteAll();
     }
 }

@@ -19,5 +19,16 @@ namespace ToDo.Pages.CompletedTask
         {
             TaskList = _taskServices.ShowAllTask();
         }
+
+        public IActionResult OnPostDeleteButton(int TaskId)
+        {
+            _taskServices.DeleteTaskById(TaskId);
+            return RedirectToPage("/CompletedTask/CompletedTask");
+        }
+        public IActionResult OnPostDeleteAll()
+        {
+            _taskServices.DeleteAll();
+            return RedirectToPage("/CompletedTask/CompletedTask");
+        }
     }
 }

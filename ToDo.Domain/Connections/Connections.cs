@@ -152,13 +152,12 @@ namespace ToDo.Domain.Connections
         /// <param name="taskDescription"></param>
         /// <param name="priority"></param>
         /// <param name="isCompleted"></param>
-        public void UpdateTask(int id, string taskName, string taskDescription, string priority, bool status)
+        public void UpdateTask(int id, string taskName, string taskDescription, string priority)
         {
             SqlCommand command = MyCommand("spUpdateTask");
             command.Parameters.AddWithValue("Task_Id", id);
             command.Parameters.AddWithValue("TaskName", taskName);
             command.Parameters.AddWithValue("TaskDescription", taskDescription);
-            command.Parameters.AddWithValue("IsCompleted", status);
             command.Parameters.AddWithValue("Priority", priority);
             try
             {
@@ -171,6 +170,10 @@ namespace ToDo.Domain.Connections
             }
         }
 
+        /// <summary>
+        /// Set task to completed on DB.
+        /// </summary>
+        /// <param name="taskId"></param>
         public void TaskIsCompleted(int taskId)
         {
             SqlCommand command = MyCommand("spTaskIsCompleted");
@@ -180,5 +183,14 @@ namespace ToDo.Domain.Connections
             _sqlConnection.Close();
 
         }
+
+        public void DeleteAll()
+        {
+            SqlCommand command = MyCommand("spDeleteAll");
+            _sqlConnection.Open();
+            command.ExecuteNonQuery();
+            _sqlConnection.Close();
+        }
+
     }
 }

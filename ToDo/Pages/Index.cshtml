@@ -4,16 +4,19 @@
     ViewData["Title"] = "Home page";
 }
 
-<a class="btn btn-group-lg btn-dark" asp-page="/CRUD/NewTask">New Task</a><br />
+<a class="btn btn-group-lg btn-dark" asp-page="/CRUD/NewTask">New Task</a>
+<br />
 <table class="table table-hover">
 
     <thead>
         <tr style="text-align: center;">
+            <th scope="col">Priority</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Created time</th>
             <th scope="col">Status</th>
-            <th scope="col">Priority</th>
+            <th scope="col">Complete</th>
+            <th scope="col">Save</th>
             <th scope="col">Update</th>
             <th scope="col">Delete</th>
         </tr>
@@ -24,10 +27,6 @@
         {
             <tbody>
                 <tr style="text-align:center;">
-                    <td>@item.Task_Name</td>
-                    <td>@item.Task_Description</td>
-                    <td>@item.Task_Created</td>
-                    <td>In Process</td>
                     @if (item.Priority == "High")
                     {
                         <td style="background-color: red">@item.Priority</td>
@@ -40,6 +39,18 @@
                     {
                         <td style="background-color: green">@item.Priority</td>
                     }
+                    <td>@item.Task_Name</td>
+                    <td>@item.Task_Description</td>
+                    <td>@item.Task_Created</td>
+                    <td>In Process</td>
+                    <form method="post" asp-page-handler="save" asp-route-TaskId="@item.Task_Id">
+                    <td>
+                        <input type="checkbox" asp-for="CompleteCheck">
+                    </td>
+                    <td>
+                        <button class="btn btn-dark">Save</button>
+                    </td>
+                    </form>
                     <td><a class="btn btn-dark btn-group-sm" asp-route-TaskId="@item.Task_Id" asp-page="/CRUD/Update">Edit</a></td>
                     <td>
                         <form asp-page-handler="DeleteButton" asp-route-TaskId="@item.Task_Id" method="post">

@@ -15,6 +15,8 @@ namespace ToDo.Pages
         }
 
         public List<TasksModel> TaskList { get; set; }
+        [BindProperty]
+        public bool CompleteCheck { get; set; }
 
         public void OnGet()
         {
@@ -23,6 +25,15 @@ namespace ToDo.Pages
         public IActionResult OnPostDeleteButton(int TaskId)
         {
             _taskServices.DeleteTaskById(TaskId);
+            return RedirectToPage("/Index");
+        }
+        public IActionResult OnPostSave(int TaskId)
+        {
+            if (CompleteCheck == true)
+            {
+                _taskServices.TaskIsCompleted(TaskId);
+                return RedirectToPage("/Index");
+            }
             return RedirectToPage("/Index");
         }
     }

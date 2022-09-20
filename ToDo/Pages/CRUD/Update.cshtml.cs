@@ -21,7 +21,6 @@ namespace ToDo.Pages.CRUD
         public string NewTaskName { get; set; }
         public string NewTaskDescription { get; set; }
         public string NewPriority { get; set; }
-        public bool NewStatus { get; set; }
         public TasksModel myTask { get; set; }
 
         public void OnGet()
@@ -31,7 +30,14 @@ namespace ToDo.Pages.CRUD
 
         public IActionResult OnPost(int id)
         {
-            _connection.UpdateTask(TaskId, NewTaskName, NewTaskDescription, NewPriority, NewStatus);
+            try
+            {
+                _connection.UpdateTask(TaskId, NewTaskName, NewTaskDescription, NewPriority);
+            }
+            catch (Exception)
+            {
+                RedirectToPage("/ErrorPage/ErrorPage");
+            }
             return RedirectToPage("/Index");
         }
     }
