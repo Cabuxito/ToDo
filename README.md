@@ -32,6 +32,8 @@ improvements.
 
 -New Task: Can create a new task.
 
+-Save: Saves the checkbox.
+
 -Edit: Can update one task.
 
 -Delete: Delete the task you have click on.
