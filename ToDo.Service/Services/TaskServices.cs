@@ -108,6 +108,9 @@ namespace ToDo.Service.Services
             _connection.TaskIsCompleted(taskId);
         }
 
+        /// <summary>
+        /// Delete all completed tasks
+        /// </summary>
         public void DeleteAll() => _connection.DeleteAll();
     }
 }

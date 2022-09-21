@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -184,6 +184,9 @@ namespace ToDo.Domain.Connections
 
         }
 
+        /// <summary>
+        /// Delete all tasks as long the are completed.
+        /// </summary>
         public void DeleteAll()
         {
             SqlCommand command = MyCommand("spDeleteAll");
