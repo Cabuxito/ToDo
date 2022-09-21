@@ -28,11 +28,14 @@ improvements.
 
 ## Instructions
 
-![image](https://user-images.githubusercontent.com/89253662/191429456-78547670-4067-42e2-93ae-035c8571e01d.png)
+![image](https://user-images.githubusercontent.com/89253662/191429885-441aaf00-d3a2-443e-a5cc-05f3ed749303.png)
 
 -New Task: Can create a new task.
+
 -Edit: Can update one task.
+
 -Delete: Delete the task you have click on.
+
 -Completed Task: Shows all the completed task and give option for delete all.
 
 ## Tags
