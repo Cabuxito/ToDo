@@ -9,6 +9,7 @@ namespace ToDo.Domain.Connections
 {
     public interface IConnections
     {
+        #region Task Connections
         public void NewTask(string taskName, string taskDescription, string priority);
         public List<Tasks> ShowAllTask();
         public Tasks ShowTaskById(int id);
@@ -16,5 +17,14 @@ namespace ToDo.Domain.Connections
         public void UpdateTask(int id, string taskName, string taskDescription, string priority);
         public void TaskIsCompleted(int taskId);
         public void DeleteAll();
+        #endregion
+
+        #region Users Connections
+        public void AddNewUser(string username, string password, string firstName, string lastName, string email);
+        public List<Users> ShowAllUsers();
+        public Users ShowUserById(int userId);
+        public void DeleteUserById(int userId);
+        public void UpdateUserById(int id, string username, string password, string firstname, string lastName, string email);
+        #endregion
     }
 }

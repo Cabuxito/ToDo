@@ -32,6 +32,7 @@ namespace ToDo.Domain.Connections
             return myCommand;
         }
 
+        #region Task Connections
         /// <summary>
         /// Add new task to database.
         /// </summary>
@@ -45,10 +46,10 @@ namespace ToDo.Domain.Connections
             SqlCommand command = MyCommand("spAddTask");
             command.Parameters.AddWithValue("TaskName", taskName);
             command.Parameters.AddWithValue("TaskDescription", taskDescription);
-            command.Parameters.AddWithValue("CreatedTime", createdNow);
+            command.Parameters.AddWithValue("TaskCreatedTime", createdNow);
             command.Parameters.AddWithValue("Priority", priority);
             _sqlConnection.Open();
-            command.ExecuteReader();
+            command.ExecuteNonQuery();
             _sqlConnection.Close();
         }
 
@@ -57,8 +58,8 @@ namespace ToDo.Domain.Connections
         /// </summary>
         /// <returns>list of task</returns>
         public List<Tasks> ShowAllTask()
-        {
-            SqlCommand command = MyCommand("spShowAllTask");
+        { 
+            SqlCommand command = MyCommand("v_view");
             try
             {
                 _sqlConnection.Open();
@@ -95,7 +96,7 @@ namespace ToDo.Domain.Connections
         /// <returns>Task Object</returns>
         public Tasks ShowTaskById(int id)
         {
-            SqlCommand command = MyCommand("spGetTaskById");
+            SqlCommand command = MyCommand("spShowTaskById");
             command.Parameters.AddWithValue("Task_Id", id);
             try
             {
@@ -154,7 +155,7 @@ namespace ToDo.Domain.Connections
         /// <param name="isCompleted"></param>
         public void UpdateTask(int id, string taskName, string taskDescription, string priority)
         {
-            SqlCommand command = MyCommand("spUpdateTask");
+            SqlCommand command = MyCommand("spUpdateTaskById");
             command.Parameters.AddWithValue("Task_Id", id);
             command.Parameters.AddWithValue("TaskName", taskName);
             command.Parameters.AddWithValue("TaskDescription", taskDescription);
@@ -184,6 +185,9 @@ namespace ToDo.Domain.Connections
 
         }
 
+        /// <summary>
+        /// Delete all
+        /// </summary>
         public void DeleteAll()
         {
             SqlCommand command = MyCommand("spDeleteAll");
@@ -191,6 +195,138 @@ namespace ToDo.Domain.Connections
             command.ExecuteNonQuery();
             _sqlConnection.Close();
         }
+        #endregion
 
+        #region Users Connections
+        /// <summary>
+        /// Add New user by input param.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="email"></param>
+        public void AddNewUser(string username, string password, string firstName, string lastName, string email) 
+        {
+            SqlCommand command = MyCommand("spAddUser");
+            command.Parameters.AddWithValue("Username", username);
+            command.Parameters.AddWithValue("Password", password);
+            command.Parameters.AddWithValue("FirstName", firstName);
+            command.Parameters.AddWithValue("LastName", lastName);
+            command.Parameters.AddWithValue("Email", email);
+            _sqlConnection.Open();
+            command.ExecuteNonQuery();
+            _sqlConnection.Close();
+        }
+        /// <summary>
+        /// Show All Users
+        /// </summary>
+        /// <returns>List of Users</returns>
+        public List<Users> ShowAllUsers()
+        {
+            SqlCommand command = MyCommand("v_ShowUsers");
+            try
+            {
+                _sqlConnection.Open();
+                SqlDataReader myReader = command.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    List<Users> myUsers = new List<Users>();
+                    while (myReader.Read())
+                    {
+                        myUsers.Add(new Users
+                        {
+                            User_Id = myReader.GetInt32("User_Id"),
+                            UserName = myReader.GetString("Username"),
+                            Password = myReader.GetString("Password"),
+                            FirstName = myReader.GetString("FirsName"),
+                            LastName = myReader.GetString("LastName"),
+                            Email = myReader.GetString("Email")
+                        });
+                    }
+                    return myUsers;
+                }
+            }
+            finally
+            {
+                _sqlConnection.Close();
+            }
+            return null;
+
+        }
+        /// <summary>
+        /// Show one User by input Id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>User Object</returns>
+        public Users ShowUserById(int userId)
+        {
+            SqlCommand command = MyCommand("spShowUserById");
+            command.Parameters.AddWithValue("Task_Id", userId);
+            try
+            {
+                _sqlConnection.Open();
+                SqlDataReader myReader = command.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    while (myReader.Read())
+                    {
+                        Users user = new Users
+                        {
+                            User_Id = myReader.GetInt32("User_Id"),
+                            UserName = myReader.GetString("Username"),
+                            Password = myReader.GetString("Password"),
+                            FirstName = myReader.GetString("FirsName"),
+                            LastName = myReader.GetString("LastName"),
+                            Email = myReader.GetString("Email")
+                        };
+                        return user;
+                    }
+                }
+            }
+            finally
+            {
+                _sqlConnection.Close();
+            }
+            return null;
+        }
+        /// <summary>
+        /// Delete User By Input Id.
+        /// </summary>
+        /// <param name="userId"></param>
+        public void DeleteUserById(int userId)
+        {
+            SqlCommand command = MyCommand("spDeleteUserById");
+            command.Parameters.AddWithValue("User_Id", userId);
+        }
+        /// <summary>
+        /// Update User By Input ID.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="email"></param>
+        public void UpdateUserById(int userId, string username, string password, string firstName, string lastName, string email)
+        {
+            SqlCommand command = MyCommand("spEditUserById");
+            command.Parameters.AddWithValue("User_Id", userId);
+            command.Parameters.AddWithValue("Username", username);
+            command.Parameters.AddWithValue("Password", password);
+            command.Parameters.AddWithValue("FirstName", firstName);
+            command.Parameters.AddWithValue("LastName", lastName);
+            command.Parameters.AddWithValue("Email", email);
+            try
+            {
+                _sqlConnection.Open();
+                command.ExecuteNonQuery();
+            }
+            finally 
+            {
+                _sqlConnection.Close();
+            }
+        }
+        #endregion
     }
 }
