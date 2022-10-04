@@ -15,5 +15,6 @@ namespace ToDo.Service.Services
         public UsersModel ShowUserById(int userId);
         public void DeleteUserById(int userId);
         public void UpdateUserById(int id, string username, string password, string firstname, string lastName, string email);
+        public bool LoginValidation(string username, string password);
     }
 }

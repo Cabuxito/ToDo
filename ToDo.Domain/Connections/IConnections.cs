@@ -25,6 +25,7 @@ namespace ToDo.Domain.Connections
         public Users ShowUserById(int userId);
         public void DeleteUserById(int userId);
         public void UpdateUserById(int id, string username, string password, string firstname, string lastName, string email);
+        public bool LoginValidation(string userName, string password);
         #endregion
     }
 }

@@ -327,5 +327,33 @@ namespace ToDo.Domain.Connections
             }
         }
         #endregion
+
+        #region LoginCheck
+        public bool LoginValidation(string userName, string password)
+        {
+            bool isLoggedIn = false;
+            SqlCommand command = MyCommand("spShowAllUsers");
+            try
+            {
+                _sqlConnection.Open();
+                SqlDataReader myReader = command.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    while (myReader.Read())
+                    {
+                        if (myReader.GetString("Username") == userName
+                            && password == myReader.GetString("Password"))
+                            return isLoggedIn = true;
+                    }
+                }
+            }
+            finally 
+            {
+                _sqlConnection.Close();
+                
+            }
+            return isLoggedIn;
+        }
+        #endregion
     }
 }
