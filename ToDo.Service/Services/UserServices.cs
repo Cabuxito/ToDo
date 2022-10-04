@@ -43,7 +43,6 @@ namespace ToDo.Service.Services
                 return newList;
             }
         }
-
         public UsersModel ShowUserById(int userId)
         {
             Users users = _connection.ShowUserById(userId);
@@ -57,7 +56,6 @@ namespace ToDo.Service.Services
             };
             return myModel;
         }
-
         public void DeleteUserById(int userId)
         {
             _connection.DeleteUserById(userId);
