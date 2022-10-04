@@ -17,5 +17,6 @@ namespace ToDo.Service.Models
         public DateTime Task_Created { get; set; }
         public string Priority { get; set; }
         public bool Task_Status { get; set; }
+        public bool Task_IsDeleted { get; set; }
     }
 }

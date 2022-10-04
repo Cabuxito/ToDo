@@ -2,14 +2,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using ToDo.Domain.Connections;
+using ToDo.Service.Services;
 
 namespace ToDo.Pages.CRUD
 {
     public class NewTaskModel : PageModel
     {
-        private readonly IConnections _connection;
+        private readonly ITaskServices _connection;
 
-        public NewTaskModel(IConnections connection)
+        public NewTaskModel(ITaskServices connection)
         {
             _connection = connection;
         }

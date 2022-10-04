@@ -18,7 +18,6 @@ namespace ToDo.Domain.Connections
         {
             _sqlConnection = new SqlConnection(_connectionString);
         }
-
         /// <summary>
         /// Get Stored Procedure and execute.
         /// </summary>
@@ -59,7 +58,7 @@ namespace ToDo.Domain.Connections
         /// <returns>list of task</returns>
         public List<Tasks> ShowAllTask()
         { 
-            SqlCommand command = MyCommand("v_view");
+            SqlCommand command = MyCommand("spShowAllTask");
             try
             {
                 _sqlConnection.Open();
@@ -71,9 +70,9 @@ namespace ToDo.Domain.Connections
                     {
                         allTask.Add(new Tasks
                         {
-                            Task_Id = myReader.GetInt32("Task_Id"),
+                            Task_Id = myReader.GetInt32("ToDo_Id"),
                             Task_Name = myReader.GetString("TaskName"),
-                            Task_Created = myReader.GetDateTime("CreatedTime"),
+                            Task_Created = myReader.GetDateTime("TaskCreatedTime"),
                             Task_Description = myReader.GetString("TaskDescription"),
                             Priority = myReader.GetString("Priority"),
                             Task_Status = myReader.GetBoolean("IsCompleted")

@@ -1,0 +1,20 @@
+﻿@page
+@model ToDo.Pages.UsersPage.LoginPageModel
+@{
+}
+
+<form class="L-Display" method="post">
+    <label>
+        <input class="L-Input" type="text" required />
+        <div class="L-Text">Username</div>
+    </label>
+
+    <label>
+        <input class="L-Input" type="password" required />
+        <div class="L-Text">Password</div>
+    </label>
+    <button type="submit" class="L-Button">Login</button>
+    <a href="/UsersPage/CreateUser" class="L-Button">Create</a>
+</form>
+
+

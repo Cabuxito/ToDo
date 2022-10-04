@@ -1,0 +1,42 @@
+﻿@page
+@model ToDo.Pages.UsersPage.CreateUserModel
+@{
+}
+
+@if (Model.CreateSucces == false)
+{
+    <form class="L-Display" method="post">
+        <label>
+            <input asp-for="Username" class="L-Input" type="text" id="fname" required />
+            <div class="L-Text">Username</div>
+        </label>
+        <label>
+            <input asp-for="Password" class="L-Input" type="password" id="fname" required />
+            <div class="L-Text">Password</div>
+        </label>
+        <label>
+            <input asp-for="Password" class="L-Input" type="password" id="fname" required />
+            <div class="L-Text">Password again</div>
+        </label>
+        <label>
+            <input asp-for="FirstName" class="L-Input" type="text" id="fname" required />
+            <div class="L-Text">Name</div>
+        </label>
+        <label>
+            <input asp-for="LastName" class="L-Input" type="text" id="fname" required />
+            <div class="L-Text">Lastname</div>
+        </label>
+        <label>
+            <input asp-for="Email" class="L-Input" type="email" id="fname" required />
+            <div class="L-Text">E-mail</div>
+        </label>
+        <button type="submit" class="L-Button">Create</button>
+    </form>
+}
+@if (Model.CreateSucces)
+{
+    <div class="L-Display">
+        <div class="L-User">User Createt</div>
+        <a href="LoginSite" class="L-Button">Tilbage til login</a>
+    </div>
+}

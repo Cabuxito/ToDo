@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddRazorPages().Services.AddSingleton<IConnections, Connections>();
 builder.Services.AddRazorPages().Services.AddSingleton<ITaskServices, TaskServices>();
+builder.Services.AddRazorPages().Services.AddSingleton<IUserService, UserServices>(); 
 
 var app = builder.Build();
 
