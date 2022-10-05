@@ -11,7 +11,12 @@ namespace ToDo.Service.Services
 {
     public class TaskServices : ITaskServices
     {
-        private Connections _connection = new();
+        private readonly IConnections _connection;
+
+        public TaskServices(IConnections connection)
+        {
+            _connection = connection;
+        }
 
         /// <summary>
         /// Caller NewTask from Domain and send parameters.

@@ -17,6 +17,7 @@
             <th scope="col">Status</th>
             <th scope="col">Complete</th>
             <th scope="col">Save</th>
+            <th scope="col">Add User</th>
             <th scope="col">Update</th>
             <th scope="col">Delete</th>
         </tr>
@@ -44,13 +45,18 @@
                     <td>@item.Task_Created</td>
                     <td>In Process</td>
                     <form method="post" asp-page-handler="save" asp-route-TaskId="@item.Task_Id">
-                    <td>
-                        <input type="checkbox" asp-for="CompleteCheck">
-                    </td>
-                    <td>
-                        <button class="btn btn-dark">Save</button>
-                    </td>
+                        <td>
+                            <input type="checkbox" asp-for="CompleteCheck">
+                        </td>
+                        <td>
+                            <button class="btn btn-dark">Save</button>
+                        </td>
                     </form>
+                    <td>
+                        <form asp-page-handler="AddUser" asp-route-TaskId="@item.Task_Id" asp-page="/CRUD/">
+                            <button class="btn btn-dark">Add User</button>
+                        </form>
+                    </td>
                     <td><a class="btn btn-dark btn-group-sm" asp-route-TaskId="@item.Task_Id" asp-page="/CRUD/Update">Edit</a></td>
                     <td>
                         <form asp-page-handler="DeleteButton" asp-route-TaskId="@item.Task_Id" method="post">

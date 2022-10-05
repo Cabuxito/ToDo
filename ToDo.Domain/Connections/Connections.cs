@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,11 +12,12 @@ namespace ToDo.Domain.Connections
 {
     public class Connections : IConnections
     {
-        private readonly string _connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ToDo;Integrated Security=True";
+        private readonly string _connectionString;
         private readonly SqlConnection _sqlConnection;
 
-        public Connections()
+        public Connections(IConfiguration configuration)
         {
+            _connectionString = configuration.GetConnectionString("connectionString");
             _sqlConnection = new SqlConnection(_connectionString);
         }
         /// <summary>

@@ -12,7 +12,14 @@ namespace ToDo.Service.Services
 {
     public class UserServices : IUserService
     {
-        private Connections _connection = new();
+        private readonly IConnections _connection;
+
+        public UserServices(IConnections connection)
+        {
+            _connection = connection;
+        }
+
+
         /// <summary>
         /// Add new user to table Users.
         /// </summary>

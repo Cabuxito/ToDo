@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Configuration;
+using System.Data.Common;
 using ToDo.Domain.Connections;
 using ToDo.Service.Services;
 
@@ -7,8 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddRazorPages().Services.AddSingleton<IConnections, Connections>();
 builder.Services.AddRazorPages().Services.AddSingleton<ITaskServices, TaskServices>();
-builder.Services.AddRazorPages().Services.AddSingleton<IUserService, UserServices>(); 
-
+builder.Services.AddRazorPages().Services.AddSingleton<IUserService, UserServices>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
