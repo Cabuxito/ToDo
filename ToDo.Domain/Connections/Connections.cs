@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -327,6 +328,39 @@ namespace ToDo.Domain.Connections
             {
                 _sqlConnection.Close();
             }
+        }
+        /// <summary>
+        /// Get User ID by Username and password.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>Users Object</returns>
+        public Users GetUserIdByUsername(string username, string password)
+        {
+            SqlCommand command = MyCommand("spGetUsersIdbyLogin");
+            command.Parameters.AddWithValue("Username", username);
+            command.Parameters.AddWithValue("Password", password);
+            try
+            {
+                _sqlConnection.Open();
+                SqlDataReader myReader = command.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    while (myReader.Read())
+                    {
+                        Users loggedUser = new Users
+                        {
+                            User_Id = myReader.GetInt32("User_Id")
+                        };
+                        return loggedUser;
+                    }
+                }
+            }
+            finally 
+            {
+                _sqlConnection.Close();
+            }
+            return null;
         }
         #endregion
 

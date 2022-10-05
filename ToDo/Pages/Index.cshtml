@@ -17,7 +17,7 @@
             <th scope="col">Status</th>
             <th scope="col">Complete</th>
             <th scope="col">Save</th>
-            <th scope="col">Add User</th>
+            <th scope="col">Add Task to User</th>
             <th scope="col">Update</th>
             <th scope="col">Delete</th>
         </tr>
@@ -54,7 +54,7 @@
                     </form>
                     <td>
                         <form asp-page-handler="AddUser" asp-route-TaskId="@item.Task_Id" asp-page="/CRUD/">
-                            <button class="btn btn-dark">Add User</button>
+                            <button class="btn btn-dark">Add to User</button>
                         </form>
                     </td>
                     <td><a class="btn btn-dark btn-group-sm" asp-route-TaskId="@item.Task_Id" asp-page="/CRUD/Update">Edit</a></td>

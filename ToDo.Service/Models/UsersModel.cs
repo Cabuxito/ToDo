@@ -8,7 +8,7 @@ namespace ToDo.Service.Models
 {
     public class UsersModel
     {
-        public int User_Id { get; init; }
+        public int User_Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
         public string FirstName { get; set; }

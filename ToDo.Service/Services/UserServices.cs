@@ -106,5 +106,20 @@ namespace ToDo.Service.Services
         /// <param name="password"></param>
         /// <returns>false if the login is not correct</returns>
         public bool LoginValidation(string username, string password) => _connection.LoginValidation(username, password);
+        /// <summary>
+        /// Get logged user id by input username and id.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>Users Id object</returns>
+        public UsersModel GetUserIdByUsername(string username, string password)
+        {
+            Users userid = _connection.GetUserIdByUsername(username, password);
+            UsersModel usersMId = new UsersModel
+            {
+                User_Id = userid.User_Id
+            };
+            return usersMId;
+        }
     }
 }
