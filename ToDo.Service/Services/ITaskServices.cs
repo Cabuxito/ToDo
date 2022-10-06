@@ -17,6 +17,6 @@ namespace ToDo.Service.Services
         public void UpdateTask(int id, string taskName, string taskDescription, string priority);
         public void TaskIsCompleted(int taskId);
         public void DeleteAll();
-        public List<TasksModel> usersTask(int userId);
+        public List<TasksModel> UsersTask(int userId);
     }
 }

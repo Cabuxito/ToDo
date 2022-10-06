@@ -118,7 +118,7 @@ namespace ToDo.Service.Services
         /// </summary>
         public void DeleteAll() => _connection.DeleteAll();
 
-        public List<TasksModel> usersTask(int userId)
+        public List<TasksModel> UsersTask(int userId)
         {
             List<Tasks> tasks = _connection.usersTask(userId);
             List<TasksModel> privateTasks = new();
