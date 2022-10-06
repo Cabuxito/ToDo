@@ -24,7 +24,7 @@ namespace ToDo.Pages.UsersPage
             _myService.GetUserIdByUsername(Username, Password);
             if (ModelState.IsValid)
             {
-                return RedirectToPage($"/UsersPage/SuccesRedirect");
+                return RedirectToPage("/UsersPage/SuccesRedirect");
             }
             else
             {

@@ -115,8 +115,8 @@ namespace ToDo.Service.Services
         /// <returns>Users Id object</returns>
         public void GetUserIdByUsername(string username, string password)
         {
-            Users userid = _connection.GetUserIdByUsername(username, password);
-            _loggedIn = userid.User_Id; 
+            int userid = _connection.GetUserIdByUsername(username, password);
+            _loggedIn = userid;
         }
 
         public int LoadLoggedIn() => _loggedIn;

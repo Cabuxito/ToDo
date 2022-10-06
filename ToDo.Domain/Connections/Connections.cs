@@ -205,7 +205,7 @@ namespace ToDo.Domain.Connections
         public List<Tasks> usersTask(int userId)
         {
             SqlCommand command = MyCommand("spShowUsersToDoById");
-            command.Parameters.AddWithValue("UserId", userId);
+            command.Parameters.AddWithValue("UsersId", userId);
             try
             {
                 _sqlConnection.Open();
@@ -337,6 +337,16 @@ namespace ToDo.Domain.Connections
         {
             SqlCommand command = MyCommand("spDeleteUserById");
             command.Parameters.AddWithValue("User_Id", userId);
+            try
+            {
+                _sqlConnection.Open();
+                command.ExecuteNonQuery();
+            }
+            finally
+            {
+                _sqlConnection.Close();
+            }
+            
         }
         /// <summary>
         /// Update User By Input ID.
@@ -372,7 +382,7 @@ namespace ToDo.Domain.Connections
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns>Users Object</returns>
-        public Users GetUserIdByUsername(string username, string password)
+        public int GetUserIdByUsername(string username, string password)
         {
             SqlCommand command = MyCommand("spGetUsersIdbyLogin");
             command.Parameters.AddWithValue("Username", username);
@@ -385,11 +395,8 @@ namespace ToDo.Domain.Connections
                 {
                     while (myReader.Read())
                     {
-                        Users loggedUser = new Users
-                        {
-                            User_Id = myReader.GetInt32("Users_Id")
-                        };
-                        return loggedUser;
+                        int userId = myReader.GetInt32(0);
+                        return userId;
                     }
                 }
             }
@@ -397,7 +404,7 @@ namespace ToDo.Domain.Connections
             {
                 _sqlConnection.Close();
             }
-            return null;
+            return 0;
         }
 
         #endregion

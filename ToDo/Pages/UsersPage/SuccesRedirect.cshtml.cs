@@ -8,7 +8,7 @@ namespace ToDo.Pages.UsersPage
     {
         public IActionResult OnGet()
         {
-            return RedirectToPage("/UsersPage/UserPrivatePage");
+            return RedirectToPage("/UserPage");
         }
     }
 }
