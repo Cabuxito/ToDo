@@ -12,11 +12,11 @@
 
 ## Intro
 
-v01-07
+#v01-07:
 I have a projekt where I need to do a To Do list on razor pages, the web needs to have a functional create, read, update and delete tasks and try to add some
 improvements.
 
-v07-1
+#v07-1:
 I need to improve the website with a login system and a DB with relationer.
 
 ## Demands 
