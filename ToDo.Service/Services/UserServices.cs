@@ -19,8 +19,6 @@ namespace ToDo.Service.Services
         {
             _connection = connection;
         }
-
-
         /// <summary>
         /// Add new user to table Users.
         /// </summary>
@@ -119,7 +117,13 @@ namespace ToDo.Service.Services
             _loggedIn = userid;
         }
 
-        public int LoadLoggedIn() => _loggedIn;
+        public int LoggedIndId() => _loggedIn;
+
+        public UsersModel LoadLoggedIn()
+        {
+            UsersModel myUser  = ShowUserById(_loggedIn);
+            return myUser;
+        }
         
     }
 }

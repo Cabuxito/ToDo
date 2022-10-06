@@ -36,11 +36,11 @@ namespace ToDo.Pages
             {
                 case "My Tasks":
                     TasksCheck = true;
-                    Tasks = _taskServices.UsersTask(_userService.LoadLoggedIn());
+                    Tasks = _taskServices.UsersTask(_userService.LoggedIndId());
                     break;
                 case "My Profile":
                     UserCheck = true;
-                    User = _userService.ShowUserById(_userService.LoadLoggedIn());
+                    User = _userService.LoadLoggedIn();
                     break;
                 default:
                     break;

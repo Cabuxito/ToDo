@@ -18,5 +18,6 @@ namespace ToDo.Service.Services
         public void TaskIsCompleted(int taskId);
         public void DeleteAll();
         public List<TasksModel> UsersTask(int userId);
+        public void AddTaskToUser(int UserId, int TaskId);
     }
 }

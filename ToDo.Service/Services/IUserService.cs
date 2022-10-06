@@ -17,7 +17,8 @@ namespace ToDo.Service.Services
         public void UpdateUserById(int id, string username, string password, string firstname, string lastName, string email);
         public bool LoginValidation(string username, string password);
         public void GetUserIdByUsername(string username, string password);
-        public int LoadLoggedIn();
+        public UsersModel LoadLoggedIn();
+        public int LoggedIndId();
 
     }
 }

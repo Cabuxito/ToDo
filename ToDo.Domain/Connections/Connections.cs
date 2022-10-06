@@ -234,6 +234,16 @@ namespace ToDo.Domain.Connections
             }
             return null;
         }
+
+        public void AddTaskToUser(int UserId, int TaskId)
+        {
+            SqlCommand command = MyCommand("spAddUsersToDo");
+            command.Parameters.AddWithValue("User_Id", UserId);
+            command.Parameters.AddWithValue("Task_Id", TaskId);
+            _sqlConnection.Open();
+            command.ExecuteNonQuery();
+            _sqlConnection.Close();
+        }
         #endregion
 
         #region Users Connections
@@ -301,7 +311,7 @@ namespace ToDo.Domain.Connections
         public Users ShowUserById(int userId)
         {
             SqlCommand command = MyCommand("spShowUserById");
-            command.Parameters.AddWithValue("Task_Id", userId);
+            command.Parameters.AddWithValue("User_Id", userId);
             try
             {
                 _sqlConnection.Open();

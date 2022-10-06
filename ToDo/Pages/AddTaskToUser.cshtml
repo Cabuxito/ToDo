@@ -1,0 +1,17 @@
+﻿@page "{TaskId:int}"
+@model ToDo.Pages.AddTaskToUserModel
+@{
+}
+
+<form class="L-Display" method="post">
+    <label>
+        <input asp-for="Username" class="L-Input" type="text" required />
+        <div class="L-Text">Username</div>
+    </label>
+
+    <label>
+        <input asp-for="Password" class="L-Input" type="password" required />
+        <div class="L-Text">Password</div>
+    </label>
+    <button type="submit" class="L-Button">Add</button>
+</form>

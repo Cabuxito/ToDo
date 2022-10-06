@@ -18,6 +18,7 @@ namespace ToDo.Domain.Connections
         public void TaskIsCompleted(int taskId);
         public void DeleteAll();
         public List<Tasks> usersTask(int userId);
+        public void AddTaskToUser(int UserId, int TaskId);
         #endregion
 
         #region Users Connections

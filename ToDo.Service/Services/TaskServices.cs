@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -118,6 +119,11 @@ namespace ToDo.Service.Services
         /// </summary>
         public void DeleteAll() => _connection.DeleteAll();
 
+        /// <summary>
+        /// Show Users Privaate Task
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>List of Users tasks</returns>
         public List<TasksModel> UsersTask(int userId)
         {
             List<Tasks> tasks = _connection.usersTask(userId);
@@ -142,6 +148,15 @@ namespace ToDo.Service.Services
                 }
                 return privateTasks.OrderBy(x => x.Priority).ToList();
             }
+        }
+        /// <summary>
+        /// Add One Task To One User
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <param name="TaskId"></param>
+        public void AddTaskToUser(int UserId, int TaskId)
+        {
+            _connection.AddTaskToUser(UserId, TaskId);
         }
     }
 }
