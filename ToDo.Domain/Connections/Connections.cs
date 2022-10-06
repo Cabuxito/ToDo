@@ -197,6 +197,43 @@ namespace ToDo.Domain.Connections
             command.ExecuteNonQuery();
             _sqlConnection.Close();
         }
+        /// <summary>
+        /// Get all privat users tasks
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>tasks list</returns>
+        public List<Tasks> usersTask(int userId)
+        {
+            SqlCommand command = MyCommand("spShowUsersToDoById");
+            command.Parameters.AddWithValue("UserId", userId);
+            try
+            {
+                _sqlConnection.Open();
+                SqlDataReader myReader = command.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    List<Tasks> myTask = new();
+                    while (myReader.Read())
+                    {
+                        myTask.Add(new Tasks
+                        {
+                            Task_Id = myReader.GetInt32("ToDo_Id"),
+                            Task_Name = myReader.GetString("TaskName"),
+                            Task_Created = myReader.GetDateTime("TaskCreatedTime"),
+                            Task_Description = myReader.GetString("TaskDescription"),
+                            Priority = myReader.GetString("Priority"),
+                            Task_Status = myReader.GetBoolean("IsCompleted")
+                        });
+                        return myTask;
+                    }
+                }
+            }
+            finally
+            {
+                _sqlConnection.Close();
+            }
+            return null;
+        }
         #endregion
 
         #region Users Connections
@@ -350,7 +387,7 @@ namespace ToDo.Domain.Connections
                     {
                         Users loggedUser = new Users
                         {
-                            User_Id = myReader.GetInt32("User_Id")
+                            User_Id = myReader.GetInt32("Users_Id")
                         };
                         return loggedUser;
                     }
@@ -362,6 +399,7 @@ namespace ToDo.Domain.Connections
             }
             return null;
         }
+
         #endregion
 
         #region LoginCheck

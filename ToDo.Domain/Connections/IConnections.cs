@@ -17,6 +17,7 @@ namespace ToDo.Domain.Connections
         public void UpdateTask(int id, string taskName, string taskDescription, string priority);
         public void TaskIsCompleted(int taskId);
         public void DeleteAll();
+        public List<Tasks> usersTask(int userId);
         #endregion
 
         #region Users Connections
@@ -27,6 +28,7 @@ namespace ToDo.Domain.Connections
         public void UpdateUserById(int id, string username, string password, string firstname, string lastName, string email);
         public bool LoginValidation(string userName, string password);
         public Users GetUserIdByUsername(string username, string password);
+        
         #endregion
     }
 }

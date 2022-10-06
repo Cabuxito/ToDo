@@ -113,6 +113,35 @@ namespace ToDo.Service.Services
             _connection.TaskIsCompleted(taskId);
         }
 
+        /// <summary>
+        /// Delete all task from DB.
+        /// </summary>
         public void DeleteAll() => _connection.DeleteAll();
+
+        public List<TasksModel> usersTask(int userId)
+        {
+            List<Tasks> tasks = _connection.usersTask(userId);
+            List<TasksModel> privateTasks = new();
+            if (tasks == null)
+            {
+                return privateTasks;
+            }
+            else
+            {
+                foreach (var item in tasks)
+                {
+                    privateTasks.Add(new TasksModel
+                    {
+                        Task_Id = item.Task_Id,
+                        Task_Name = item.Task_Name,
+                        Task_Description = item.Task_Description,
+                        Task_Created = item.Task_Created,
+                        Priority = item.Priority,
+                        Task_Status = item.Task_Status
+                    });
+                }
+                return privateTasks.OrderBy(x => x.Priority).ToList();
+            }
+        }
     }
 }

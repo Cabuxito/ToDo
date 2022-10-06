@@ -13,6 +13,7 @@ namespace ToDo.Service.Services
     public class UserServices : IUserService
     {
         private readonly IConnections _connection;
+        private int _loggedIn;
 
         public UserServices(IConnections connection)
         {
@@ -112,14 +113,13 @@ namespace ToDo.Service.Services
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns>Users Id object</returns>
-        public UsersModel GetUserIdByUsername(string username, string password)
+        public void GetUserIdByUsername(string username, string password)
         {
             Users userid = _connection.GetUserIdByUsername(username, password);
-            UsersModel usersMId = new UsersModel
-            {
-                User_Id = userid.User_Id
-            };
-            return usersMId;
+            _loggedIn = userid.User_Id; 
         }
+
+        public int LoadLoggedIn() => _loggedIn;
+        
     }
 }
