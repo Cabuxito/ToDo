@@ -52,11 +52,7 @@
                             <button class="btn btn-dark">Save</button>
                         </td>
                     </form>
-                    <td>
-                        <form asp-page-handler="AddTaskU" asp-route-TaskId="@item.Task_Id" asp-page="/AddTaskToUser">
-                            <button class="btn btn-dark">Add to User</button>
-                        </form>
-                    </td>
+                    <td><a class="btn btn-dark" asp-route-TaskId="@item.Task_Id" asp-page="/AddTaskToUser">Add Task To User</a></td>
                     <td><a class="btn btn-dark btn-group-sm" asp-route-TaskId="@item.Task_Id" asp-page="/CRUD/Update">Edit</a></td>
                     <td>
                         <form asp-page-handler="DeleteButton" asp-route-TaskId="@item.Task_Id" method="post">

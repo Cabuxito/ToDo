@@ -7,10 +7,12 @@ namespace ToDo.Pages
     public class AddTaskToUserModel : PageModel
     {
         private readonly ITaskServices _taskServices;
-        
-        public AddTaskToUserModel(ITaskServices taskServices)
+        private readonly IUserService _userService;
+
+        public AddTaskToUserModel(ITaskServices taskServices, IUserService userService)
         {
             _taskServices = taskServices;
+            _userService = userService;
         }
         [BindProperty(SupportsGet = true)]
         public int TaskId { get; set; }
@@ -19,9 +21,11 @@ namespace ToDo.Pages
         [BindProperty]
         public string Password { get; set; }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            _taskServices.Add
+            _userService.GetUserIdByUsername(Username,Password);
+            _taskServices.AddTaskToUser(_userService.LoggedIndId(), TaskId);
+            return RedirectToAction("/Index");
         }
     }
 }
