@@ -28,7 +28,7 @@ improvements.
 
 ## Instructions
 
-![image](https://user-images.githubusercontent.com/89253662/191429885-441aaf00-d3a2-443e-a5cc-05f3ed749303.png)
+![image](https://user-images.githubusercontent.com/89253662/194400237-6972b8f8-a585-43f3-b48f-e0422ee08d68.png)
 
 -New Task: Can create a new task.
 
