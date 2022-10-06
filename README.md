@@ -11,8 +11,13 @@
 
 
 ## Intro
+
+v01-07
 I have a projekt where I need to do a To Do list on razor pages, the web needs to have a functional create, read, update and delete tasks and try to add some
 improvements.
+
+v07-1
+I need to improve the website with a login system and a DB with relationer.
 
 ## Demands 
 
@@ -24,6 +29,9 @@ improvements.
   <li> DevelopV0.5: Design one page where Completed Tasks shows. [✔️]</li>
   <li> DevelopV0.6: CompletedTasks page are functional and I have add some features like Delete All, etc.. [✔️]</li>
   <li> DevelopV0.7: Sorting function and improve user experience. [✔️]</li>
+  <li> DevelopV0.8: Add Login Methods And improve DB to 3 tables and a many-to-many relation. [✔️]</li>
+  <li> DevelopV0.9: Shows private tasks and login works. [✔️]</li>
+  <li> DevelopV1.0: Add Task to User and almost all website works. [✔️]</li>
 </ul>
 
 ## Instructions
@@ -40,6 +48,8 @@ improvements.
 
 -Completed Task: Shows all the completed task and give option for delete all.
 
+-Login : You can register and log in with username and password, and se your tasks.
+
 ## Tags
 
 * [v0.1]https://github.com/Cabuxito/ToDo/tree/Develop0.1
@@ -48,7 +58,10 @@ improvements.
 * [v0.4]https://github.com/Cabuxito/ToDo/tree/Develop0.4
 * [v0.5]https://github.com/Cabuxito/ToDo/tree/Develop0.5 
 * [V0.6]https://github.com/Cabuxito/ToDo/tree/DevelopV0.6
-* [V0.7]https://github.com/Cabuxito/ToDo/tree/Develop0.7 - Current Version 
+* [V0.7]https://github.com/Cabuxito/ToDo/tree/Develop0.7
+* [V0.8]https://github.com/Cabuxito/ToDo/tree/Develop0.8
+* [V0.9]https://github.com/Cabuxito/ToDo/tree/DevelopV0.9
+* [V1.0]https://github.com/Cabuxito/ToDo/tree/DevelopV1 - Current Version
 
 ## Changelog
 
@@ -75,9 +88,19 @@ The new page are functional and I did make some improvements on the Completed Pa
 **v0.7**:
 Add the sorting function by priority and make some features to improve the user experience and security.
 
+**v0.8**
+I did add user and login methods and change the DB to 3 tables a many-to-many relation.
+
+**v0.9**
+Show private tasks and logins works better than I spected.
+
+**v1.0**
+Button Add task to User works and almost all website works... SHOOT ME!
+
 
 # To-do
 * Pages as a pop-up window.
 * Sort by name, dato.
-* Login System.
+* Login System. [✔️]
 * Web Design
+* Improve login System
