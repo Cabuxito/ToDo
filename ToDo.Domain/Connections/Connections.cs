@@ -25,7 +25,7 @@ namespace ToDo.Domain.Connections
         /// Get Stored Procedure and execute.
         /// </summary>
         /// <param name="StoredProcedure"></param>
-        /// <returns>Procedure accion.</returns>
+        /// <returns>Procedure call.</returns>
         public SqlCommand MyCommand(string StoredProcedure)
         {
             SqlCommand myCommand = new SqlCommand(StoredProcedure);
@@ -235,6 +235,11 @@ namespace ToDo.Domain.Connections
             return null;
         }
 
+        /// <summary>
+        /// Add one task to one User by input users id and task id.
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <param name="TaskId"></param>
         public void AddTaskToUser(int UserId, int TaskId)
         {
             SqlCommand command = MyCommand("spAddUsersToDo");
@@ -420,6 +425,13 @@ namespace ToDo.Domain.Connections
         #endregion
 
         #region LoginCheck
+
+        /// <summary>
+        /// Login Validation
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns>boolen true if the login is right</returns>
         public bool LoginValidation(string userName, string password)
         {
             bool isLoggedIn = false;

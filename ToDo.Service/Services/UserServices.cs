@@ -116,9 +116,16 @@ namespace ToDo.Service.Services
             int userid = _connection.GetUserIdByUsername(username, password);
             _loggedIn = userid;
         }
-
+        /// <summary>
+        /// Returns logged ID.
+        /// </summary>
+        /// <returns>int = User Id</returns>
         public int LoggedIndId() => _loggedIn;
 
+        /// <summary>
+        /// Get one User by input ID.
+        /// </summary>
+        /// <returns>UsersModel object.</returns>
         public UsersModel LoadLoggedIn()
         {
             UsersModel myUser  = ShowUserById(_loggedIn);
