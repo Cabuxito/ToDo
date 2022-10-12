@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo.Domain", "ToDo.Domain\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo.Service", "ToDo.Service\ToDo.Service.csproj", "{9C8ADF99-6124-43A1-8D6C-5B4365C3F901}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ToDo.DB", "ToDo.DB\ToDo.DB.sqlproj", "{9C5B11C5-4710-4751-AF07-E1636159D1AF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +27,6 @@ Global
 		{9C8ADF99-6124-43A1-8D6C-5B4365C3F901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C8ADF99-6124-43A1-8D6C-5B4365C3F901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C8ADF99-6124-43A1-8D6C-5B4365C3F901}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C5B11C5-4710-4751-AF07-E1636159D1AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C5B11C5-4710-4751-AF07-E1636159D1AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C5B11C5-4710-4751-AF07-E1636159D1AF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{9C5B11C5-4710-4751-AF07-E1636159D1AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C5B11C5-4710-4751-AF07-E1636159D1AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C5B11C5-4710-4751-AF07-E1636159D1AF}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
